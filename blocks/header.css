@@ -1,0 +1,17 @@
+.header {
+  margin-top: 45px;
+}
+
+.header__logo {
+  max-width: 173px;
+  max-height: 33px;
+}
+
+.header__divider {
+  border-bottom: 1px solid #545454;
+  opacity: 70%;
+  flex-grow: 1;
+  max-width: 880px;
+  display: flex;
+  padding: 20px;
+}
