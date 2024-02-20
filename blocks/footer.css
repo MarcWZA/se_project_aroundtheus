@@ -6,6 +6,15 @@ footer {
 }
 
 .footer__copyright {
-  margin-top: 50px;
   width: 318px;
+  margin-top: 60px;
+}
+
+@media screen and (max-width: 621px) {
+  .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 19px;
+    margin-top: 30px;
+  }
 }

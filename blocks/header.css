@@ -21,3 +21,11 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 621px) {
+  .header__logo {
+    padding-left: 27px;
+    max-width: 126px;
+    max-height: 24px;
+  }
+}
