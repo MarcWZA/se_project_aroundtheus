@@ -43,8 +43,7 @@
   width: 24px;
   grid-area: button;
   padding: 0;
-  border-style: solid;
-  border-color: #fff;
+  border: 1px solid #fff;
   align-self: center;
   cursor: pointer;
   transition: opacity 0.5s ease-in-out;

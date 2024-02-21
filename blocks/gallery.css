@@ -13,9 +13,6 @@
 }
 
 @media screen and (max-width: 621px) {
-  .gallery {
-    padding: 0;
-  }
   .gallery__cards {
     padding: 0 19px;
   }
