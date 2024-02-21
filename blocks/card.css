@@ -1,12 +1,14 @@
 .card {
   display: flex;
   flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .card__image {
   width: 282px;
   height: 282px;
-  border-radius: 10px 10px 0 0;
+  object-fit: fill;
 }
 
 .card__description {
@@ -35,9 +37,10 @@
   width: 21px;
   height: 18px;
   border: none;
+  cursor: pointer;
   transition: opacity 0.5s ease-in-out;
 }
 
 .card__like-button:hover {
-  opacity: 60%;
+  opacity: 50%;
 }

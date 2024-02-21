@@ -1,6 +1,5 @@
 .gallery {
   font-family: "Inter", Arial, sans-serif;
-  padding: 15px 0 36px;
 }
 
 .gallery__cards {
@@ -8,7 +7,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 18px;
+  grid-gap: 20px 17px;
   padding: 0;
   margin: 0;
 }
@@ -18,6 +17,6 @@
     padding: 0;
   }
   .gallery__cards {
-    padding: 0 18px;
+    padding: 0 19px;
   }
 }

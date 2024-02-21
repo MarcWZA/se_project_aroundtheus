@@ -4,7 +4,6 @@
 }
 
 .page__content {
-  background-color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
@@ -15,7 +14,6 @@
 .page__section {
   max-width: 882px;
   width: 100%;
-  position: relative;
   margin: 0 auto;
 }
 
