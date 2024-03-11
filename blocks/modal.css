@@ -18,7 +18,10 @@
 .modal__container {
   position: relative;
   padding: 36px;
+  padding-bottom: 0;
   background-color: #fff;
+  width: 430px;
+  height: 330px;
   margin: auto;
   border-radius: 10px;
 }
@@ -35,6 +38,11 @@
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal__close:hover {
+  opacity: 60%;
 }
 
 .modal__heading {
@@ -42,8 +50,51 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  width: 330px;
-  height: 23px;
   margin-top: 0;
   margin-bottom: 54px;
+}
+
+.modal__forms {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  font-family: "Inter", Arial, san-serif;
+  font-weight: 400px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.modal__form {
+  height: 27px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 13px;
+}
+
+.modal__button {
+  background-color: #000;
+  color: #fff;
+  margin-top: 18px;
+  border-radius: 2px;
+  height: 50px;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal__button:hover {
+  opacity: 80%;
+}
+
+@media screen and (max-width: 621px) {
+  .modal__heading {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .modal__close {
+    left: calc(100% - 30px);
+    bottom: calc(100% + 14px);
+    width: 26px;
+    height: 26px;
+  }
 }
