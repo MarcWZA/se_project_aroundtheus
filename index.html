@@ -29,7 +29,7 @@
             alt="Avatar"
           />
           <div class="profile__info">
-            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
+            <h1 class="profile__name" id="profile-name">Jacques Cousteau</h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
@@ -39,7 +39,11 @@
               Explorer
             </p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button
+            class="profile__add-button"
+            id="profile-add-button"
+            type="button"
+          ></button>
         </section>
         <section class="gallery page__section">
           <ul class="gallery__cards" id="card-list"></ul>
@@ -48,35 +52,63 @@
       <footer class="footer page__section">
         <p class="footer__copyright">&copy; 2024 Around The U.S.</p>
       </footer>
-    </div>
-
-    <div class="modal" id="profile-edit-modal">
-      <div class="modal__container">
-        <button
-          class="modal__close"
-          id="profile-edit-modal-close"
-          type="button"
-        ></button>
-        <h2 class="modal__heading">Edit profile</h2>
-        <form class="modal__form" id="profile-edit-form">
-          <input
-            class="modal__input"
-            type="text"
-            name="title"
-            id="profile-title-input"
-            placeholder="Name"
-            required
-          />
-          <input
-            class="modal__input"
-            type="text"
-            name="description"
-            id="profile-description-input"
-            placeholder="Description"
-            required
-          />
-          <button class="modal__button" type="submit">Save</button>
-        </form>
+      <div class="modal" id="profile-edit-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close"
+            id="profile-edit-modal-close"
+            type="button"
+          ></button>
+          <h2 class="modal__heading">Edit profile</h2>
+          <form class="modal__form" id="profile-edit-form">
+            <input
+              class="modal__input modal__input_type_name"
+              type="text"
+              name="name"
+              id="profile-name-input"
+              placeholder="Name"
+              required
+            />
+            <input
+              class="modal__input modal__input_type_description"
+              type="text"
+              name="description"
+              id="profile-description-input"
+              placeholder="Description"
+              required
+            />
+            <button class="modal__button" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button
+            class="modal__close"
+            id="add-card-modal-close"
+            type="button"
+          ></button>
+          <h2 class="modal__heading">New Place</h2>
+          <form class="modal__form" id="add-card-form">
+            <input
+              class="modal__input modal__input_type_title"
+              type="text"
+              name="title"
+              id="profile-title-input"
+              placeholder="Title"
+              required
+            />
+            <input
+              class="modal__input modal__input_type_url"
+              type="text"
+              name="description"
+              id="profile-description-input"
+              placeholder="Image URL"
+              required
+            />
+            <button class="modal__button" type="submit">Save</button>
+          </form>
+        </div>
       </div>
     </div>
 

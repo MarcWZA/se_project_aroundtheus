@@ -24,7 +24,7 @@
   margin-right: 10px;
 }
 
-.profile__title {
+.profile__name {
   font-size: 42px;
   line-height: 48px;
   font-weight: 500;
@@ -100,7 +100,7 @@
     margin-top: 30px;
     width: 100%;
   }
-  .profile__title {
+  .profile__name {
     font-size: 22px;
     line-height: 27px;
     margin-right: 10px;
