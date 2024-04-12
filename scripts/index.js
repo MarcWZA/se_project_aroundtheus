@@ -79,9 +79,9 @@ function handleProfileEditSubmit(e) {
 
 function handleAddCardSubmit(e) {
   e.preventDefault();
-  const title = cardTitleInput.value;
+  const name = cardTitleInput.value;
   const link = cardImageInput.value;
-  renderCard({ title, link }, cardListEl);
+  renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
 }
 
