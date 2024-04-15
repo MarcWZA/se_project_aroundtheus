@@ -10,6 +10,7 @@
   width: 282px;
   height: 282px;
   object-fit: fill;
+  cursor: pointer;
 }
 
 .card__delete-button {
