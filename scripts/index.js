@@ -87,8 +87,6 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  cardImageEl.style.backgroundImage = `url(${cardData.link})`;
-
   cardImageEl.addEventListener("click", () => {
     previewImageImageEl.src = cardData.link;
     previewImageTextEl.textContent = cardData.name;
