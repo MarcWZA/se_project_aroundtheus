@@ -113,6 +113,7 @@ function handleAddCardSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardImageInput.value;
   renderCard({ name, link }, cardListEl);
+  e.target.reset();
   closePopup(addCardModal);
 }
 
@@ -125,12 +126,13 @@ profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 
-profileEditClose.addEventListener("click", () => closePopup(profileEditModal));
-
 addNewCardButton.addEventListener("click", () => openPopup(addCardModal));
 
-addCardClose.addEventListener("click", () => closePopup(addCardModal));
+const closeButtons = document.querySelectorAll(".modal__close");
 
-closeImageModal.addEventListener("click", () => closePopup(previewImageModal));
+closeButtons.forEach((button) => {
+  const modal = button.closest(".modal");
+  button.addEventListener("click", () => closePopup(modal));
+});
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
