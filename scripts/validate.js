@@ -1,9 +1,28 @@
+function setEventListeners(formElement, options) {
+  const { inputSelector } = options;
+  const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  console.log(inputElements);
+}
+
 function enableValidation(options) {
-  const formElements = [...document.querySelectorAll(".modal__form")];
+  const formElements = [...document.querySelectorAll(options.formSelector)];
   formElements.forEach((formElement) => {
     formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
+
+    setEventListeners(formElement, options);
+
+    // look for all inputs inside of form
+    // loop through all the inputs to see if all are valid
+    // if input is not valid
+    // get validation message
+    // add error class to input
+    // display error message
+    // disable button
+    // if all inputs are valid
+    // enable button
+    // reset error messages
   });
 }
 
