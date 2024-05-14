@@ -67,6 +67,8 @@
               name="name"
               id="profile-name-input"
               placeholder="Name"
+              minlength="2"
+              maxlength="40"
               required
             />
             <input
@@ -75,6 +77,8 @@
               name="description"
               id="profile-description-input"
               placeholder="Description"
+              minlength="2"
+              maxlength="200"
               required
             />
             <button class="modal__button" type="submit">Save</button>
@@ -98,11 +102,13 @@
               name="title"
               id="card-title-input"
               placeholder="Title"
+              minlength="1"
+              maxlength="30"
               required
             />
             <input
               class="modal__input modal__input_type_url"
-              type="text"
+              type="url"
               name="url"
               id="card-image-input"
               placeholder="Image URL"
@@ -125,6 +131,7 @@
     </div>
 
     <script defer src="./scripts/index.js"></script>
+    <script defer src="./scripts/validate.js"></script>
 
     <template id="card-template">
       <li class="card">
