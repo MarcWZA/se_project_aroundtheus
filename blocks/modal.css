@@ -94,10 +94,15 @@
   line-height: 17px;
 }
 
+.modal__label {
+  position: relative;
+}
+
 .modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 13px;
+  width: 100%;
 }
 
 .modal__input_type_error {
@@ -113,6 +118,10 @@
   top: calc(100% + 5px);
   left: 0;
   transition: opacity 0.3s;
+}
+
+.modal__error_visible {
+  opacity: 1;
 }
 
 .modal__button {
@@ -131,6 +140,12 @@
 
 .modal__button:hover {
   opacity: 80%;
+}
+
+.modal__button_disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc;
 }
 
 @media screen and (max-width: 621px) {

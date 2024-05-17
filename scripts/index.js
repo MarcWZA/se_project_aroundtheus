@@ -61,10 +61,31 @@ const cardImageInput = addCardForm.querySelector("#card-image-input");
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscKeyPress);
+  modal.addEventListener("click", handleClickOutside);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscKeyPress);
+  modal.removeEventListener("click", handleClickOutside);
+}
+
+function handleEscKeyPress(e) {
+  if (e.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closePopup(openedModal);
+    }
+  }
+}
+
+function handleClickOutside(e) {
+  const modal = e.currentTarget;
+  const modalContainer = modal.querySelector(".modal__container");
+  if (!modalContainer || !modalContainer.contains(e.target)) {
+    closePopup(modal);
+  }
 }
 
 function renderCard(cardData, wrapper) {
