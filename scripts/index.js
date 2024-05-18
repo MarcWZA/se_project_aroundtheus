@@ -82,8 +82,7 @@ function handleEscKeyPress(e) {
 
 function handleClickOutside(e) {
   const modal = e.currentTarget;
-  const modalContainer = modal.querySelector(".modal__container");
-  if (!modalContainer || !modalContainer.contains(e.target)) {
+  if (modal === e.target) {
     closePopup(modal);
   }
 }
