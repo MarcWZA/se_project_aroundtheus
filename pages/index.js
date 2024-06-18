@@ -1,3 +1,6 @@
+// import Card from "../components/Card";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -58,6 +61,23 @@ const profileDescriptionInput = document.querySelector(
 
 const cardTitleInput = addCardForm.querySelector("#card-title-input");
 const cardImageInput = addCardForm.querySelector("#card-image-input");
+
+// Validation
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+const editFormValidator = new FormValidator(
+  validationSettings,
+  profileEditForm
+);
+const addFormValidator = new FormValidator(validationSettings, addCardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
