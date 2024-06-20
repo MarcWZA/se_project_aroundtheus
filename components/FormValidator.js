@@ -5,6 +5,7 @@ class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
+    this._inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
 
     this._formEl = formEl;
   }

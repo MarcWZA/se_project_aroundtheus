@@ -108,8 +108,9 @@ function handleClickOutside(e) {
 }
 
 function renderCard(cardData, wrapper) {
+  const card = new Card(cardData, cardTemplate);
   const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+  wrapper.prepend(card.getView());
 }
 
 function getCardElement(cardData) {
