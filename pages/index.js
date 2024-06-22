@@ -35,11 +35,13 @@ const cardTemplate = "#card-template";
 const cardListEl = document.querySelector("#card-list");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
-const profileEditForm = profileEditModal.querySelector("#profile-edit-form");
-const addCardForm = addCardModal.querySelector("#add-card-form");
 const previewImageModal = document.querySelector("#image-modal");
 const previewImageImageEl = previewImageModal.querySelector(".modal__image");
 const previewImageTextEl = previewImageModal.querySelector(".modal__caption");
+
+// Forms
+const profileEditForm = document.forms["profile-edit-form"];
+const addCardForm = document.forms["add-card-form"];
 
 // Buttons and other DOM nodes
 const profileEditBtn = document.querySelector("#profile-edit-button");
@@ -109,9 +111,13 @@ function handleImageClick({ name, link }) {
   openPopup(previewImageModal);
 }
 
-function renderCard(cardData, wrapper) {
+function createCard(cardData) {
   const card = new Card(cardData, cardTemplate, handleImageClick);
-  const cardElement = card.getView();
+  return card.getView();
+}
+
+function renderCard(cardData, wrapper) {
+  const cardElement = createCard(cardData);
   if (cardElement) {
     wrapper.prepend(cardElement);
   } else {
@@ -127,7 +133,6 @@ function handleProfileEditSubmit(e) {
   const submitButton = profileEditForm.querySelector(
     validationSettings.submitButtonSelector
   );
-  submitButton.classList.add(validationSettings.inactiveButtonClass);
   submitButton.disabled = true;
 }
 
@@ -138,7 +143,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
   addCardForm.reset();
-  addFormValidator.resetValidation();
+  addFormValidator._disableButton();
 }
 
 // Form listeners
@@ -151,10 +156,7 @@ profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 
-addNewCardButton.addEventListener("click", () => {
-  addFormValidator.resetValidation();
-  openPopup(addCardModal);
-});
+addNewCardButton.addEventListener("click", () => openPopup(addCardModal));
 
 const closeButtons = document.querySelectorAll(".modal__close");
 
