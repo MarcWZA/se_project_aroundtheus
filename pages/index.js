@@ -130,10 +130,6 @@ function handleProfileEditSubmit(e) {
   profileName.textContent = profileNameInput.value;
   profileDescription.innerText = profileDescriptionInput.value;
   closePopup(profileEditModal);
-  const submitButton = profileEditForm.querySelector(
-    validationSettings.submitButtonSelector
-  );
-  submitButton.disabled = true;
 }
 
 function handleAddCardSubmit(e) {
@@ -143,7 +139,7 @@ function handleAddCardSubmit(e) {
   renderCard({ name, link }, cardListEl);
   closePopup(addCardModal);
   addCardForm.reset();
-  addFormValidator._disableButton();
+  addFormValidator.disableButton();
 }
 
 // Form listeners
