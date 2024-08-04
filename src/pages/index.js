@@ -120,7 +120,7 @@ function handleProfileEditSubmit(data) {
 function handleAddCardSubmit(data) {
   const name = data.title;
   const link = data.url;
-  renderCard({ name, link });
+  section.addItem({ name, link });
   addCardModal.close();
   addFormValidator.disableButton();
 }
@@ -136,7 +136,10 @@ profileEditBtn.addEventListener("click", () => {
   profileEditModal.open();
 });
 
-addNewCardButton.addEventListener("click", () => addCardModal.open());
+addNewCardButton.addEventListener("click", () => {
+  addFormValidator.resetValidation();
+  addCardModal.open();
+});
 
 // Close buttons for modals
 const closeButtons = document.querySelectorAll(".modal__close");
@@ -158,6 +161,3 @@ closeButtons.forEach((button) => {
 function handleImageClick({ name, link }) {
   previewImageModal.open({ name, link });
 }
-
-// Load initial cards using the Section class
-initialCards.forEach((cardData) => renderer(cardData));
