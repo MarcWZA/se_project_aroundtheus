@@ -2,37 +2,10 @@ import Section from "../components/Section.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithImages from "../components/PopupWithImages.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
-
-// Existing initialCards array
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
+import { initialCards, validationSettings } from "../utils/constants.js";
 
 // Templates
 const cardTemplate = "#card-template";
@@ -77,15 +50,6 @@ const section = new Section(
   "#card-list"
 );
 
-// Validation settings
-const validationSettings = {
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
-
 // Initialize form validators
 const profileEditForm = document.forms["profile-edit-form"];
 const addCardForm = document.forms["add-card-form"];
@@ -108,7 +72,7 @@ const addCardModal = new PopupWithForm("#add-card-modal", handleAddCardSubmit);
 addCardModal.setEventListeners();
 
 // Initialize PopupWithImage instance
-const previewImageModal = new PopupWithImage("#image-modal");
+const previewImageModal = new PopupWithImages("#image-modal");
 previewImageModal.setEventListeners();
 
 // Functions to handle opening and closing of modals
@@ -120,18 +84,16 @@ function handleProfileEditSubmit(data) {
 function handleAddCardSubmit(data) {
   const name = data.title;
   const link = data.url;
-  section.addItem({ name, link });
+  renderer({ name, link });
   addCardModal.close();
   addFormValidator.disableButton();
 }
 
 // Form listeners
-profileEditForm.addEventListener("submit", handleProfileEditSubmit);
-addCardForm.addEventListener("submit", handleAddCardSubmit);
 profileEditBtn.addEventListener("click", () => {
   const userData = userInfo.getUserInfo();
-  profileNameInput.value = userData.name;
-  profileDescriptionInput.value = userData.job;
+  profileNameInput.value = userData.name.trim();
+  profileDescriptionInput.value = userData.job.trim();
   editFormValidator.resetValidation();
   profileEditModal.open();
 });
