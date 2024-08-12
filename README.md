@@ -26,9 +26,9 @@ While the website is not fully complete for a user to share their journey, it is
 
 I implemented some advance HTML and CSS coding using the (display: grid;) property, allowing the website to properly format itself depending on the device it is being used on:
 
-![Platform on desktop](.src/images/demo/Screenshot%202024-02-20%20001015.png)
-![Platform on tablet](.src/images/demo/Screenshot%202024-02-20%20001048.png)
-![Platform on mobile](.src/images/demo/Screenshot%202024-02-20%20001114.png)
+![Platform on desktop](./src/images/demo/Screenshot%202024-02-20%20001015.png)
+![Platform on tablet](./src/images/demo/Screenshot%202024-02-20%20001048.png)
+![Platform on mobile](./src/images/demo/Screenshot%202024-02-20%20001114.png)
 
 **How to build**
 
