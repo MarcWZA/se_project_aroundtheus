@@ -38,7 +38,7 @@ function createCard(cardData) {
 // Renderer function
 function renderer(cardData) {
   const cardElement = createCard(cardData);
-  cardListEl.prepend(cardElement);
+  section.addItem(cardElement);
 }
 
 // Initialize the Section class with the initial cards and renderer function
@@ -47,8 +47,10 @@ const section = new Section(
     items: initialCards,
     renderer: renderer,
   },
-  "#card-list"
+  cardListEl
 );
+
+section.renderItems();
 
 // Initialize form validators
 const profileEditForm = document.forms["profile-edit-form"];
@@ -86,6 +88,7 @@ function handleAddCardSubmit(data) {
   const link = data.url;
   renderer({ name, link });
   addCardModal.close();
+  addCardForm.reset();
   addFormValidator.disableButton();
 }
 
@@ -99,24 +102,7 @@ profileEditBtn.addEventListener("click", () => {
 });
 
 addNewCardButton.addEventListener("click", () => {
-  addFormValidator.resetValidation();
   addCardModal.open();
-});
-
-// Close buttons for modals
-const closeButtons = document.querySelectorAll(".modal__close");
-
-closeButtons.forEach((button) => {
-  const modal = button.closest(".modal");
-  button.addEventListener("click", () => {
-    if (modal.id === "profile-edit-modal") {
-      profileEditModal.close();
-    } else if (modal.id === "add-card-modal") {
-      addCardModal.close();
-    } else if (modal.id === "image-modal") {
-      previewImageModal.close();
-    }
-  });
 });
 
 // Function to handle image click
