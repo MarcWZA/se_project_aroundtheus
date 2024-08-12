@@ -10,9 +10,6 @@ import { initialCards, validationSettings } from "../utils/constants.js";
 // Templates
 const cardTemplate = "#card-template";
 
-// Wrappers
-const cardListEl = document.querySelector("#card-list");
-
 //Form elements
 const profileNameInput = document.querySelector("#profile-name-input");
 const profileDescriptionInput = document.querySelector(
@@ -47,7 +44,7 @@ const section = new Section(
     items: initialCards,
     renderer: renderer,
   },
-  cardListEl
+  "#card-list"
 );
 
 section.renderItems();
